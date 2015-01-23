@@ -1063,6 +1063,9 @@ try
 		("-python",Arg.String (fun dir ->
 			set_platform Python dir;
 		),"<file> : generate Python code as target file");
+		("-ruby",Arg.String (fun dir ->
+			set_platform Ruby dir;
+		),"<file> : generate Ruby code as target file");
 		("-xml",Arg.String (fun file ->
 			Parser.use_doc := true;
 			xml_out := Some file
@@ -1448,6 +1451,9 @@ try
 		| Python ->
 			add_std "python";
 			"python"
+		| Ruby ->
+			add_std "ruby";
+			"ruby"
 	) in
 	(* if we are at the last compilation step, allow all packages accesses - in case of macros or opening another project file *)
 	begin match com.display with
@@ -1554,6 +1560,9 @@ try
 		| Python ->
 			Common.log com ("Generating python in : " ^ com.file);
 			Genpy.generate com;
+		| Ruby ->
+			Common.log com ("Generating ruby in : " ^ com.file);
+			Genruby.generate com;
 		);
 	end;
 	Sys.catch_break false;

@@ -49,7 +49,7 @@ RELDIR=../../..
 
 MODULES=ast type lexer common genxml parser typecore optimizer typeload \
 	codegen gencommon genas3 gencpp genjs genneko genphp genswf8 \
-	genswf9 genswf genjava gencs genpy interp dce analyzer filters typer matcher version main
+	genswf9 genswf genjava gencs genpy genruby interp dce analyzer filters typer matcher version main
 
 ADD_REVISION=0
 
@@ -143,6 +143,8 @@ genneko.$(MODULE_EXT): type.$(MODULE_EXT) lexer.$(MODULE_EXT) common.$(MODULE_EX
 genphp.$(MODULE_EXT): type.$(MODULE_EXT) lexer.$(MODULE_EXT) common.$(MODULE_EXT) codegen.$(MODULE_EXT) ast.$(MODULE_EXT)
 
 genpy.$(MODULE_EXT): type.$(MODULE_EXT) lexer.$(MODULE_EXT) common.$(MODULE_EXT) codegen.$(MODULE_EXT) ast.$(MODULE_EXT)
+
+genruby.$(MODULE_EXT): type.$(MODULE_EXT) lexer.$(MODULE_EXT) common.$(MODULE_EXT) codegen.$(MODULE_EXT) ast.$(MODULE_EXT)
 
 genswf.$(MODULE_EXT): type.$(MODULE_EXT) genswf9.$(MODULE_EXT) genswf8.$(MODULE_EXT) common.$(MODULE_EXT) ast.$(MODULE_EXT)
 
